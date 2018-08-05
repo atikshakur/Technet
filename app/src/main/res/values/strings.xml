@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Technet</string>
+    <string name="todo">TODO</string>
+    <string name="this_is_a_news">Detail News 1</string>
+    <string name="by_atik_shakur">BY ATIK</string>
+    <string name="fortnite_coming_for_android_on_july_24">Fortnite coming for android on July 24</string>
+    <string name="todoo">TODO</string>
+    <string name="title_activity_bottom_nav">BottomNavActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="home">Home</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="settings">Settings</string>
+</resources>

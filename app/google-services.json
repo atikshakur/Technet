@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "722912504630",
+    "firebase_url": "https://technet-61014.firebaseio.com",
+    "project_id": "technet-61014",
+    "storage_bucket": "technet-61014.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722912504630:android:8b6bbdd33140ed89",
+        "android_client_info": {
+          "package_name": "com.technet.zone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722912504630-j9pd6bfj2lbua9b6tv0b186hoe2kj33f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.technet.zone",
+            "certificate_hash": "67a61d081ad7f89bff15e75938ff701c3861ea18"
+          }
+        },
+        {
+          "client_id": "722912504630-k03jngtbjajskr3407rskddk361jc6ll.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUzRp72dec2rBTmzapONQSuDwldqdN0y8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722912504630-k03jngtbjajskr3407rskddk361jc6ll.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
