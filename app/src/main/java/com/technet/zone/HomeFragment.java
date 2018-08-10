@@ -23,10 +23,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeFragment extends Fragment {
 
+    //RecyclerView
     private RecyclerView newsRecycleView;
     private RecyclerView trendingRecycleView;
+    //db ref
     private DatabaseReference mDatabaseRef;
     private DatabaseReference mDatabaseRefTrending;
+
     View v;
 
     private static final String TAG = "HomeFragment";
@@ -46,9 +49,6 @@ public class HomeFragment extends Fragment {
         //latest news
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child( "LatestNews" );
         mDatabaseRef.keepSynced( true );
-        //trending news
-        mDatabaseRefTrending = FirebaseDatabase.getInstance().getReference().child( "TrendingNews" );
-        mDatabaseRefTrending.keepSynced( true );
 
         newsRecycleView = v.findViewById(R.id.recycle_view_latest);
         newsRecycleView.setNestedScrollingEnabled(false);
@@ -62,22 +62,31 @@ public class HomeFragment extends Fragment {
 
         Log.d( TAG, "onViewCreated: latest coming" );
 
+        //trending news
+        mDatabaseRefTrending = FirebaseDatabase.getInstance().getReference().child( "TrendingNews" );
+        mDatabaseRefTrending.keepSynced( true );
+
         trendingRecycleView = v.findViewById(R.id.recycle_view_trending);
-        trendingRecycleView.setNestedScrollingEnabled(false);
+        trendingRecycleView.setNestedScrollingEnabled(true);
         trendingRecycleView.setHasFixedSize( true );
 
-        LinearLayoutManager mLayoutManager2 = new LinearLayoutManager(getContext());
-        mLayoutManager.setReverseLayout(true);
-        mLayoutManager.setStackFromEnd(true);
+        LinearLayoutManager mLayoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        mLayoutManager2.setReverseLayout(true);
+        mLayoutManager2.setStackFromEnd(true);
         // Set the layout manager to your recyclerview
         trendingRecycleView.setLayoutManager(mLayoutManager2);
         Log.d( TAG, "onViewCreated: trending coming" );
+
     }
 
     @Override
     public void onStart() {
         super.onStart();
 
+        populateLatestNews();
+        populateTrendingNews();
+    }
+    public void populateLatestNews(){
         // FOR LATEST NEWS
         FirebaseRecyclerAdapter<news, NewsViewHolder1> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<news,
                 NewsViewHolder1>
@@ -116,9 +125,8 @@ public class HomeFragment extends Fragment {
             }
         };
         newsRecycleView.setAdapter( firebaseRecyclerAdapter );
-
-
-
+    }
+    public void populateTrendingNews(){
         //FOR TRENDING
         FirebaseRecyclerAdapter<newsTrend, NewsViewHolder2> firebaseRecyclerAdapter2 = new FirebaseRecyclerAdapter<newsTrend,
                 NewsViewHolder2>
@@ -158,8 +166,8 @@ public class HomeFragment extends Fragment {
         };
         trendingRecycleView.setAdapter( firebaseRecyclerAdapter2 );
     }
-    public static class NewsViewHolder1 extends RecyclerView.ViewHolder{
 
+    public static class NewsViewHolder1 extends RecyclerView.ViewHolder{
         View mView;
         CardView recycleViewCardView;
         public NewsViewHolder1(View itemView){

@@ -23,7 +23,7 @@
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="#640b0b"
+        android:background="#2a5c8d"
         app:menu="@menu/bottom_nav_items"
         android:layout_alignParentBottom="true"/>
 

@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:orientation="vertical"
-        android:background="@color/colorPrimaryDark">
+        android:background="#d5d5d5">
 
         <ImageView
             android:id="@+id/news_image"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="Title"
-            android:textColor="#ddffffff"
+            android:textColor="#dd000000"
             android:textSize="20dp" />
     </LinearLayout>
 
