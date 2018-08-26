@@ -1,4 +1,4 @@
-package com.technet.zone;
+package com.technet.zone.extendedActivitys;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.technet.zone.R;
 
 public class ExtendedNewsActivity extends AppCompatActivity {
 
@@ -37,7 +38,10 @@ public class ExtendedNewsActivity extends AppCompatActivity {
     }
 
     private void getIncomongIntent(){
-        if (getIntent().hasExtra( "image" ) && getIntent().hasExtra( "title" )){
+        if (getIntent().hasExtra( "image" ) && getIntent().hasExtra( "title" )
+                && getIntent().hasExtra( "detailnews1" ) && getIntent().hasExtra( "detailnews2" )
+                && getIntent().hasExtra( "detailnews3" ) && getIntent().hasExtra( "writter" )
+                && getIntent().hasExtra( "catagory" )){
             Log.d( TAG, "getIncomongIntent: found intent extras" );
 
             String image = getIntent().getStringExtra( "image" );

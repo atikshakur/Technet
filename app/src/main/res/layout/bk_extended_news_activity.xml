@@ -7,52 +7,43 @@
     android:layout_height="match_parent"
     android:scrollbars="none">
 
-    <android.support.constraint.ConstraintLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
 
         <ImageView
-            android:id="@+id/detail_news_image"
-            android:layout_width="0dp"
+            android:id="@+id/bk_detail_news_image"
+            android:layout_width="match_parent"
             android:layout_height="180dp"
             android:background="@android:color/holo_blue_dark"
             android:contentDescription="@string/todo"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:scaleType="centerCrop" />
 
         <ImageView
-            android:id="@+id/back_button"
+            android:id="@+id/bk_back_button"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back_arrow_left_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
+            app:srcCompat="@drawable/ic_back_arrow_left_black_24dp" />
 
         <TextView
-            android:id="@+id/catagory_text"
+            android:layout_below="@id/bk_detail_news_image"
+            android:id="@+id/bk_catagory_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="catagory"
-            android:textColor="#000066"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_news_image" />
+            android:textColor="#000066" />
 
         <TextView
-            android:id="@+id/titleText"
-            android:layout_width="0dp"
+            android:layout_below="@id/bk_catagory_text"
+            android:id="@+id/bk_titleText"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/lato_bold"
@@ -61,29 +52,22 @@
             android:paddingStart="16dp"
             android:text="title"
             android:textColor="#222222"
-            android:textSize="21sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/catagory_text" />
+            android:textSize="21sp"/>
 
         <TextView
-            android:id="@+id/writer"
-            android:layout_width="0dp"
+            android:id="@+id/bk_writer"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:paddingEnd="16dp"
             android:paddingStart="16dp"
             android:text="writter"
             android:textColor="#999999"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleText" />
+            android:layout_below="@id/bk_titleText"/>
 
         <TextView
-            android:id="@+id/detail_news_string1"
-            android:layout_width="0dp"
+            android:id="@+id/bk_detail_news_string1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
@@ -94,15 +78,12 @@
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="#3D3D3D"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/writer" />
+            android:layout_below="@id/bk_writer"/>
 
         <TextView
             android:text="detail news 2"
-            android:id="@+id/detail_news_string2"
-            android:layout_width="0dp"
+            android:id="@+id/bk_detail_news_string2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
@@ -112,14 +93,12 @@
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="#3D3D3D"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_news_string1" />
+            android:layout_below="@id/bk_detail_news_string1"
+             />
 
         <TextView
-            android:id="@+id/detail_news_string3"
-            android:layout_width="0dp"
+            android:id="@+id/bk_detail_news_string3"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/roboto"
@@ -130,12 +109,9 @@
             android:textAppearance="@style/TextAppearance.AppCompat"
             android:textColor="#3D3D3D"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_news_string2" />
+            android:layout_below="@id/bk_detail_news_string2"/>
 
 
-    </android.support.constraint.ConstraintLayout>
+    </RelativeLayout>
 
 </ScrollView>

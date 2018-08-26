@@ -16,12 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ExtendedNewsActivity" />
+        <activity android:name=".extendedActivitys.ExtendedNewsActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity android:name=".extendedActivitys.BkExtendedNewsActivity"></activity>
     </application>
 
 </manifest>

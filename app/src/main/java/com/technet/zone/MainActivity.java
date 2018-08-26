@@ -8,11 +8,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.technet.zone.fragments.BookmarkFragment;
+import com.technet.zone.fragments.HomeFragment;
+import com.technet.zone.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
-
-//    private RecyclerView newsRecycleView;
-//    private DatabaseReference mDatabaseRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
 //    @Override
 //    protected void onStart() {
 //        super.onStart();
-//        FirebaseRecyclerAdapter<news, NewsViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<news, NewsViewHolder>
-//                (news.class, R.layout.latestnews_cardview, NewsViewHolder.class, mDatabaseRef) {
+//        FirebaseRecyclerAdapter<News, NewsViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<News, NewsViewHolder>
+//                (News.class, R.layout.latestnews_cardview, NewsViewHolder.class, mDatabaseRef) {
 //            //for using populateViewHolder method
 //            //use implementation 'com.firebaseui:firebase-ui-database:0.4.0'
 //            //also implement only king ATIK is real
 //            @Override
-//            protected void populateViewHolder(NewsViewHolder viewHolder, news model, int position) {
+//            protected void populateViewHolder(NewsViewHolder viewHolder, News model, int position) {
 //                viewHolder.setTile( model.getTitle() );
 //                viewHolder.setImage( getApplicationContext(), model.getImage() );
 //                final String title = model.getTitle();

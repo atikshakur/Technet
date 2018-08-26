@@ -1,4 +1,4 @@
-package com.technet.zone;
+package com.technet.zone.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,13 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.technet.zone.extendedActivitys.ExtendedNewsActivity;
+import com.technet.zone.R;
+import com.technet.zone.dbHelper.Column;
+import com.technet.zone.dbHelper.DataType;
+import com.technet.zone.dbHelper.Easydb2;
+import com.technet.zone.model.News;
+import com.technet.zone.model.newsTrend;
 
 public class HomeFragment extends Fragment {
 
@@ -29,9 +36,7 @@ public class HomeFragment extends Fragment {
     //db ref
     private DatabaseReference mDatabaseRef;
     private DatabaseReference mDatabaseRefTrending;
-
     View v;
-
     private static final String TAG = "HomeFragment";
 
     @Nullable
@@ -46,7 +51,7 @@ public class HomeFragment extends Fragment {
         super.onViewCreated( view, savedInstanceState );
         this.v = view;
 
-        //latest news
+        //latest News
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child( "LatestNews" );
         mDatabaseRef.keepSynced( true );
 
@@ -62,7 +67,7 @@ public class HomeFragment extends Fragment {
 
         Log.d( TAG, "onViewCreated: latest coming" );
 
-        //trending news
+        //trending News
         mDatabaseRefTrending = FirebaseDatabase.getInstance().getReference().child( "TrendingNews" );
         mDatabaseRefTrending.keepSynced( true );
 
@@ -76,30 +81,40 @@ public class HomeFragment extends Fragment {
         // Set the layout manager to your recyclerview
         trendingRecycleView.setLayoutManager(mLayoutManager2);
         Log.d( TAG, "onViewCreated: trending coming" );
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-
         populateLatestNews();
         populateTrendingNews();
     }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+////        populateLatestNews();
+////        populateTrendingNews();
+//    }
     public void populateLatestNews(){
         // FOR LATEST NEWS
-        FirebaseRecyclerAdapter<news, NewsViewHolder1> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<news,
+         final Easydb2 easydb2 = Easydb2.init( getContext(), null, 1 )
+                .setTableName("BOOKMARK_TABLE")
+                .addColumn(new Column("image", new DataType()._text_().unique().done()))
+                .addColumn(new Column("title", new DataType()._text_().unique().done()))
+                .addColumn(new Column("detailnews1", new DataType()._text_().unique().done()))
+                .addColumn(new Column("detailnews2", new DataType()._text_().unique().done()))
+                .addColumn(new Column("detailnews3", new DataType()._text_().unique().done()))
+                .addColumn(new Column("writter", new DataType()._text_().done()))
+                .addColumn(new Column("catagory", new DataType()._text_().done()))
+                .doneTableColumn();
+
+        FirebaseRecyclerAdapter<News, NewsViewHolder1> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<News,
                 NewsViewHolder1>
-                (news.class, R.layout.latestnews_cardview, NewsViewHolder1.class, mDatabaseRef) {
+                (News.class, R.layout.latestnews_cardview, NewsViewHolder1.class, mDatabaseRef) {
             //for using populateViewHolder method
             //use implementation 'com.firebaseui:firebase-ui-database:0.4.0'
             //also implement only king ATIK is real
             @Override
-            protected void populateViewHolder(NewsViewHolder1 viewHolder1, news model, int position) {
+            protected void populateViewHolder(final NewsViewHolder1 viewHolder1, News model, int position) {
                 viewHolder1.setTile( model.getTitle() );
                 viewHolder1.setImage( getContext(), model.getImage() );
-                final String title = model.getTitle();
                 final String image = model.getImage();
+                final String title = model.getTitle();
                 final String detailnews1 = model.getDetailnews1();
                 final String detailnews2 = model.getDetailnews2();
                 final String detailnews3 = model.getDetailnews3();
@@ -120,6 +135,25 @@ public class HomeFragment extends Fragment {
                         intent.putExtra( "catagory", catagory );
                         startActivity( intent );
                         //   overridePendingTransition(0, 0);
+                    }
+                } );
+
+                viewHolder1.bookmarkButton.setOnClickListener( new View.OnClickListener() {
+                    //init db
+
+
+                    @Override
+                    public void onClick(View v) {
+                        viewHolder1.bookmarkButton.setBackgroundResource( R.drawable.ic_bookmark_black_24dp );
+
+                        easydb2.addData("image", image)
+                                .addData("title", title)
+                                .addData("detailnews1", detailnews1)
+                                .addData("detailnews2", detailnews2)
+                                .addData("detailnews3", detailnews3)
+                                .addData("writter", writter)
+                                .addData("catagory", catagory)
+                                .doneDataAdding();
                     }
                 } );
             }
@@ -166,22 +200,23 @@ public class HomeFragment extends Fragment {
         };
         trendingRecycleView.setAdapter( firebaseRecyclerAdapter2 );
     }
-
     public static class NewsViewHolder1 extends RecyclerView.ViewHolder{
         View mView;
         CardView recycleViewCardView;
+        ImageView bookmarkButton;
         public NewsViewHolder1(View itemView){
             super(itemView);
             mView = itemView;
             recycleViewCardView = itemView.findViewById( R.id.recycle_view_cardview );
+            bookmarkButton = itemView.findViewById( R.id.bookmark_icon );
         }
         public void setTile(String title){
-            Log.d( TAG, "setTile: setting title latest news" );
+            Log.d( TAG, "setTile: setting title latest News" );
             TextView postTitle = mView.findViewById( R.id.post_title );
             postTitle.setText( title );
         }
         public void setImage(Context ctx, String image){
-            Log.d( TAG, "setImage: setting image latest news" );
+            Log.d( TAG, "setImage: setting image latest News" );
             ImageView postImage = mView.findViewById( R.id.news_image );
             //for picasso
             //use implementation 'com.squareup.picasso:picasso:2.5.2'
@@ -203,12 +238,12 @@ public class HomeFragment extends Fragment {
             recycleViewCardView2 = itemView2.findViewById( R.id.recycle_view_cardview_trending );
         }
         public void setTile(String title){
-            Log.d( TAG, "setTile: setting title trending news" );
+            Log.d( TAG, "setTile: setting title trending News" );
             TextView postTitle = mView2.findViewById( R.id.post_title );
             postTitle.setText( title );
         }
         public void setImage(Context ctx, String image){
-            Log.d( TAG, "setTile: setting image trending news" );
+            Log.d( TAG, "setTile: setting image trending News" );
             ImageView postImage = mView2.findViewById( R.id.news_image );
             //for picasso
             //use implementation 'com.squareup.picasso:picasso:2.5.2'

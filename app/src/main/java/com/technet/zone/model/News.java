@@ -1,6 +1,8 @@
-package com.technet.zone;
+package com.technet.zone.model;
 
-public class newsTrend {
+import java.io.Serializable;
+
+public class News implements Serializable {
 
     private String title;
     private String image;
@@ -20,15 +22,24 @@ public class newsTrend {
     }
 
 
-    public newsTrend(String title, String image) {
+    public News(String title, String image) {
         this.title = title;
         this.image = image;
     }
 
-    public newsTrend(String title, String image, String writter, String detailnews1, String detailnews2,
-                     String detailnews3, String catagory) {
+    public News(String title, String image, String writter, String detailnews1, String detailnews2,
+                String detailnews3, String catagory) {
         this.title = title;
         this.image = image;
+        this.writter = writter;
+        this.detailnews1 = detailnews1;
+        this.detailnews2 = detailnews2;
+        this.detailnews3 = detailnews3;
+        this.catagory = catagory;
+    }
+    public News(String title, String writter, String detailnews1, String detailnews2,
+                String detailnews3, String catagory) {
+        this.title = title;
         this.writter = writter;
         this.detailnews1 = detailnews1;
         this.detailnews2 = detailnews2;
@@ -81,7 +92,7 @@ public class newsTrend {
     public void setImage(String image) {
         this.image = image;
     }
-    public newsTrend(){
+    public News(){
 
     }
 }

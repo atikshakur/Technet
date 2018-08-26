@@ -1,6 +1,6 @@
-package com.technet.zone;
+package com.technet.zone.model;
 
-public class news {
+public class newsTrend {
 
     private String title;
     private String image;
@@ -20,13 +20,13 @@ public class news {
     }
 
 
-    public news(String title, String image) {
+    public newsTrend(String title, String image) {
         this.title = title;
         this.image = image;
     }
 
-    public news(String title, String image, String writter, String detailnews1, String detailnews2,
-                String detailnews3, String catagory) {
+    public newsTrend(String title, String image, String writter, String detailnews1, String detailnews2,
+                     String detailnews3, String catagory) {
         this.title = title;
         this.image = image;
         this.writter = writter;
@@ -81,7 +81,7 @@ public class news {
     public void setImage(String image) {
         this.image = image;
     }
-    public news(){
+    public newsTrend(){
 
     }
 }

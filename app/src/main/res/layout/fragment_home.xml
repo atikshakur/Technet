@@ -3,19 +3,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="#f4f4f4"
     >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <TextView
+            android:textSize="17sp"
+            android:id="@+id/Trending_text"
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trending"
+            android:layout_marginStart="10dp"/>
         <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="15dp"
+            android:layout_below="@+id/Trending_text"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="5dp"
             android:id="@+id/recycle_view_trending"
             android:layout_width="match_parent"
             android:layout_height="110dp"
             />
+        <TextView
+            android:textSize="17sp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="10dp"
+            android:id="@+id/Latest_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Latest"
+            android:layout_below="@id/recycle_view_trending"/>
         <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="15dp"
-            android:layout_below="@+id/recycle_view_trending"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_below="@+id/Latest_text"
             android:id="@+id/recycle_view_latest"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
