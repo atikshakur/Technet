@@ -155,7 +155,6 @@ public class HomeFragment extends Fragment {
                                 .addData("writter", writter)
                                 .addData("catagory", catagory)
                                 .doneDataAdding();
-
                     }
                 } );
             }

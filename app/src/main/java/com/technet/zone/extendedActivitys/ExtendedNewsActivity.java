@@ -53,7 +53,6 @@ public class ExtendedNewsActivity extends AppCompatActivity {
             String catagory = getIntent().getStringExtra( "catagory" );
 
             setExtra( image,  title, detailnews1, writter,detailnews2, detailnews3, catagory );
-
         }
     }
 

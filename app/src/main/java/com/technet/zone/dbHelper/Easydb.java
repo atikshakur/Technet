@@ -10,7 +10,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 public class Easydb extends SQLiteOpenHelper {
 
-
     // Variables
     private String DATABASE_NAME, TABLE_NAME = "BOOKMARK_TABLE", SQL = "";
     private ArrayList<Column> columns = new ArrayList<>();
@@ -24,7 +23,6 @@ public class Easydb extends SQLiteOpenHelper {
         super(context, dbName, null, 1);
         this.context = context;
     }
-
 
     public Easydb addData(int columnNumber, String data) {
         if (!initedDb || writableDatabase == null) initDatabase();
@@ -51,7 +49,6 @@ public class Easydb extends SQLiteOpenHelper {
         contentValues.put(columnName, data);
         return this;
     }
-
 
     public boolean doneDataAdding() {
         long result = writableDatabase.insert(TABLE_NAME, null, contentValues);
