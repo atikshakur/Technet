@@ -13,7 +13,6 @@ import java.io.Serializable;
 
 public class BkExtendedNewsActivity extends AppCompatActivity implements Serializable {
 
-    private ImageView extendedImageView, backButton;
     private TextView byWritter;
     private TextView detailsNews1Text, detailsNews2Text, detailsNews3Text;
     private TextView titleText;
@@ -47,95 +46,6 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
             detailsNews1Text.setText( detailnews1 );
             detailsNews2Text.setText( detailnews2 );
             detailsNews3Text.setText( detailnews3 );
-
         }
-
-
-//        Bundle bundle = getIntent().getExtras();
-//
-//
-//        String title = bundle.getString( "title" );
-//        titleText.setText( title );
-//
-//        String catagory = bundle.getString( "title" );
-//        titleText.setText( title );
-//
-//        String writter = bundle.getString( "title" );
-//        titleText.setText( title );
-//
-//        String detailnews1 = bundle.getString( "title" );
-//        titleText.setText( title );
-//
-//        String detailnews2 = bundle.getString( "title" );
-//        titleText.setText( title );
-//
-//        String detailnews3 = bundle.getString( "title" );
-//        titleText.setText( title );
-//
-//        Log.d( TAG, "onCreate: started" );
     }
-
-//    private void getIncomongIntent(){
-////        if (getIntent().hasExtra( "image" ) && getIntent().hasExtra( "title" )
-////                && getIntent().hasExtra( "detailnews1" ) && getIntent().hasExtra( "detailnews2" )
-////                && getIntent().hasExtra( "detailnews3" ) && getIntent().hasExtra( "writter" )
-////                && getIntent().hasExtra( "catagory" )){
-////            Log.d( TAG, "getIncomongIntent: found intent extras" );
-////
-////            String image = getIntent().getStringExtra( "image" );
-//            String title = getIntent().getStringExtra( "title" );
-////            String detailnews1 = getIntent().getStringExtra( "detailnews1" );
-////            String detailnews2 = getIntent().getStringExtra( "detailnews2" );
-////            String detailnews3 = getIntent().getStringExtra( "detailnews3" );
-////            String writter = getIntent().getStringExtra( "writter" );
-//     //       String catagory = getIntent().getStringExtra( "catagory" );
-////
-//            setExtra(
-//       //             image,
-//                    title,
-//        //            detailnews1,
-//       //             writter,
-//        //            detailnews2,
-//        //            detailnews3,
-//                    catagory );
-////
-//        }
-
-
-//    private void setExtra(
-//          //                  String image,
-//                          String title,
-//         ////                 String detailnews1,
-//           //               String writter,
-//         //                 String detailnews2,
-//         //                 String detailnews3,
-//                          String catagory)
-//    {
-//
-////        extendedImageView = findViewById( R.id.bk_detail_news_image );
-////        Glide.with( this )
-////                .asBitmap()
-////                .load( image )
-////                .into( extendedImageView );
-//
-//        mcatagory = findViewById( R.id.bk_catagory_text );
-//        mcatagory.setText( catagory );
-//
-////        byWritter = findViewById( R.id.bk_writer );
-////        byWritter.setText( writter );
-//
-//        titleText = findViewById( R.id.bk_titleText );
-//        titleText.setText( title );
-////
-////        detailsNews1 = findViewById( R.id.bk_detail_news_string1 );
-////        detailsNews1.setText( detailnews1 );
-////
-////        detailsNews2 = findViewById( R.id.bk_detail_news_string2 );
-////        detailsNews2.setText( detailnews2 );
-////
-////        detailsNews3 = findViewById( R.id.bk_detail_news_string3 );
-////        detailsNews3.setText( detailnews3 );
-//
-//    }
-
 }

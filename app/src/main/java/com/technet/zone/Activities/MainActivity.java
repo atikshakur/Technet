@@ -1,4 +1,4 @@
-package com.technet.zone;
+package com.technet.zone.Activities;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.technet.zone.R;
 import com.technet.zone.fragments.BookmarkFragment;
 import com.technet.zone.fragments.HomeFragment;
 import com.technet.zone.fragments.SettingsFragment;
