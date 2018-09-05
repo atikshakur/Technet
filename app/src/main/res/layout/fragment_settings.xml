@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    >
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1a237e"
+        android:id="@+id/settings_toolbar"
+        android:elevation="4dp"
+        />
+
+    <TextView
+        android:layout_below="@+id/settings_toolbar"
+        android:layout_marginTop="6dp"
+        android:id="@+id/support_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:text="SUPPORT" />
+
+    <ListView
+        android:layout_below="@id/support_settings"
+        android:id="@+id/settings_support_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:id="@+id/about_settings"
+        android:layout_below="@id/settings_support_listview"
+        android:text="ABOUT"
+        android:layout_marginStart="15dp"
+        />
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_listview_settings"
+        android:layout_below="@id/about_settings"
+        android:layout_marginTop="8dp"
+        />
+
 
 </RelativeLayout>
