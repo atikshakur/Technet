@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.extendedActivitys.ExtendedNewsActivity;
 import com.technet.zone.R;
 import com.technet.zone.dbHelper.Column;
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference mDatabaseRefTrending;
     View v;
     private static final String TAG = "HomeFragment";
+
 
     @Nullable
     @Override
@@ -154,6 +156,7 @@ public class HomeFragment extends Fragment {
                                 .addData("writter", writter)
                                 .addData("catagory", catagory)
                                 .doneDataAdding();
+
                     }
                 } );
             }

@@ -1,5 +1,6 @@
 package com.technet.zone.fragments;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -14,15 +15,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
-import com.technet.zone.adapter.CustomAdapter;
+import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.extendedActivitys.BkExtendedNewsActivity;
 import com.technet.zone.R;
 import com.technet.zone.dbHelper.Easydb2;
+import com.technet.zone.model.DataModel;
 import com.technet.zone.model.News;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class BookmarkFragment extends Fragment implements Serializable {
@@ -32,7 +35,7 @@ public class BookmarkFragment extends Fragment implements Serializable {
     Easydb2 easydb2;
     ImageView bkPostImage;
     String title, catagory;
-    private CustomAdapter customAdapter;
+//    private CustomAdapter customAdapter;
     String writter,  detailnews1,  detailnews2,
                  detailnews3;
 
@@ -42,6 +45,9 @@ public class BookmarkFragment extends Fragment implements Serializable {
             bkDetailnews1, bkDetailnews2, bkDetailnews3,bkWritter;
     ArrayAdapter<String> adapterTitle, adapterCatagory;
 
+    DataHolderAdapter adapter;
+
+    public static ArrayList<DataModel> dataModel = new ArrayList<>();
 
     @Nullable
     @Override
@@ -57,6 +63,8 @@ public class BookmarkFragment extends Fragment implements Serializable {
         easydb2 = new Easydb2( getContext() );
 
         listView = v.findViewById( R.id.bookmark_listView );
+        adapter = new DataHolderAdapter( Objects.requireNonNull( getContext() ), dataModel);
+        listView.setAdapter(adapter);
 
         Cursor cursor = easydb2.getAllData();
 
@@ -70,33 +78,9 @@ public class BookmarkFragment extends Fragment implements Serializable {
             detailnews2 = cursor.getString( 4 );
             detailnews3 = cursor.getString( 5);
             catagory = cursor.getString( 7 );
-
-
+            dataModel.add(new DataModel(title, writter, detailnews1, detailnews2, detailnews3, catagory));
         }
 
-        final News newsModel = new News( title, writter, detailnews1, detailnews2, detailnews3, catagory );
-
-
-        customAdapter = new CustomAdapter(getContext(), cursor);
-        listView.setAdapter(customAdapter);
-
-        listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Bundle bundle = new Bundle(  );
-                bundle.putString( "title", title );
-                bundle.putString( "writter", writter );
-                bundle.putString( "detailnews1", detailnews1 );
-                bundle.putString( "detailnews2", detailnews2 );
-                bundle.putString( "detailnews3", detailnews3 );
-                bundle.putString( "catagory", catagory );
-                Intent intent = new Intent( getActivity(), BkExtendedNewsActivity.class );
-
-                intent.putExtras( bundle );
-                startActivity( intent );
-            }
-        } );
 
 //        bkTitle = new ArrayList<>(  );
 //        bkCatagory = new ArrayList<>(  );

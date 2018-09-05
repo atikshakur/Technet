@@ -15,7 +15,7 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
 
     private ImageView extendedImageView, backButton;
     private TextView byWritter;
-    private TextView detailsNews1, detailsNews2, detailsNews3;
+    private TextView detailsNews1Text, detailsNews2Text, detailsNews3Text;
     private TextView titleText;
     private TextView mcatagory;
 
@@ -29,33 +29,50 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
         titleText = findViewById( R.id.bk_titleText );
         mcatagory = findViewById( R.id.bk_catagory_text );
         byWritter = findViewById( R.id.bk_writer );
-        detailsNews1 = findViewById( R.id.bk_detail_news_string1 );
-        detailsNews2 = findViewById( R.id.bk_detail_news_string2 );
-        detailsNews3 = findViewById( R.id.bk_detail_news_string3 );
+        detailsNews1Text = findViewById( R.id.bk_detail_news_string1 );
+        detailsNews2Text = findViewById( R.id.bk_detail_news_string2 );
+        detailsNews3Text = findViewById( R.id.bk_detail_news_string3 );
+
+        if (getIntent().hasExtra( "title" ) && getIntent().hasExtra( "catagory" )){
+            String title = getIntent().getStringExtra( "title" );
+            String catagory = getIntent().getStringExtra( "catagory" );
+            String writter = getIntent().getStringExtra( "writter" );
+            String detailnews1 = getIntent().getStringExtra( "detailnews1" );
+            String detailnews2 = getIntent().getStringExtra( "detailnews2" );
+            String detailnews3 = getIntent().getStringExtra( "detailnews3" );
+
+            titleText.setText( title );
+            mcatagory.setText( catagory );
+            byWritter.setText( writter );
+            detailsNews1Text.setText( detailnews1 );
+            detailsNews2Text.setText( detailnews2 );
+            detailsNews3Text.setText( detailnews3 );
+
+        }
 
 
-        Bundle bundle = getIntent().getExtras();
-
-
-        String title = bundle.getString( "title" );
-        titleText.setText( title );
-
-        String catagory = bundle.getString( "title" );
-        titleText.setText( title );
-
-        String writter = bundle.getString( "title" );
-        titleText.setText( title );
-
-        String detailnews1 = bundle.getString( "title" );
-        titleText.setText( title );
-
-        String detailnews2 = bundle.getString( "title" );
-        titleText.setText( title );
-
-        String detailnews3 = bundle.getString( "title" );
-        titleText.setText( title );
-
-        Log.d( TAG, "onCreate: started" );
+//        Bundle bundle = getIntent().getExtras();
+//
+//
+//        String title = bundle.getString( "title" );
+//        titleText.setText( title );
+//
+//        String catagory = bundle.getString( "title" );
+//        titleText.setText( title );
+//
+//        String writter = bundle.getString( "title" );
+//        titleText.setText( title );
+//
+//        String detailnews1 = bundle.getString( "title" );
+//        titleText.setText( title );
+//
+//        String detailnews2 = bundle.getString( "title" );
+//        titleText.setText( title );
+//
+//        String detailnews3 = bundle.getString( "title" );
+//        titleText.setText( title );
+//
+//        Log.d( TAG, "onCreate: started" );
     }
 
 //    private void getIncomongIntent(){
