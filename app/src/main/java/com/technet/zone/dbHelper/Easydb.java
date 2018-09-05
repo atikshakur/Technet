@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
-public class Easydb2 extends SQLiteOpenHelper {
+public class Easydb extends SQLiteOpenHelper {
 
 
     // Variables
@@ -20,32 +20,32 @@ public class Easydb2 extends SQLiteOpenHelper {
     private static final String dbName = "bookmarks.db";
 
     //
-    public Easydb2(Context context) {
+    public Easydb(Context context) {
         super(context, dbName, null, 1);
         this.context = context;
     }
 
 
-    public Easydb2 addData(int columnNumber, String data) {
+    public Easydb addData(int columnNumber, String data) {
         if (!initedDb || writableDatabase == null) initDatabase();
         contentValues.put(columns.get(columnNumber - 1).columnName, data);
         return this;
     }
 
-    public Easydb2 addData(String columnName, String data) {
+    public Easydb addData(String columnName, String data) {
         columnName = columnName.replaceAll(" ", "_");
         if (!initedDb || writableDatabase == null) initDatabase();
         contentValues.put(columnName, data);
         return this;
     }
 
-    public Easydb2 addData(int columnNumber, int data) {
+    public Easydb addData(int columnNumber, int data) {
         if (!initedDb || writableDatabase == null) initDatabase();
         contentValues.put(columns.get(columnNumber - 1).columnName, data);
         return this;
     }
 
-    public Easydb2 addData(String columnName, int data) {
+    public Easydb addData(String columnName, int data) {
         columnName = columnName.replaceAll(" ", "_");
         if (!initedDb || writableDatabase == null) initDatabase();
         contentValues.put(columnName, data);
@@ -71,13 +71,13 @@ public class Easydb2 extends SQLiteOpenHelper {
     }
 
     //
-    public Easydb2 updateData(int columnNumber, String data) {
+    public Easydb updateData(int columnNumber, String data) {
         if (!initedDb || writableDatabase == null) initDatabase();
         contentValues.put(columns.get(columnNumber - 1).columnName, data);
         return this;
     }
 
-    public Easydb2 updateData(int columnNumber, int data) {
+    public Easydb updateData(int columnNumber, int data) {
         if (!initedDb || writableDatabase == null) initDatabase();
         contentValues.put(columns.get(columnNumber - 1).columnName, data);
         return this;
@@ -103,17 +103,17 @@ public class Easydb2 extends SQLiteOpenHelper {
     }
 
     //
-    public Easydb2 setTableName(String tableName) {
+    public Easydb setTableName(String tableName) {
         this.TABLE_NAME = tableName.replaceAll(" ", "_");
         return this;
     }
 
-    public Easydb2 addColumn(Column column) {
+    public Easydb addColumn(Column column) {
         columns.add(column);
         return this;
     }
 
-    public Easydb2 doneTableColumn() {
+    public Easydb doneTableColumn() {
         SQL = " CREATE TABLE " + TABLE_NAME + " ( _id INTEGER PRIMARY KEY AUTOINCREMENT, ";
         for (int i = 0; i < columns.size(); i++) {
             SQL += " " + columns.get(i).columnName + " " + columns.get(i).columnDataType + " ";
@@ -135,18 +135,18 @@ public class Easydb2 extends SQLiteOpenHelper {
     }
 
     //
-    public static Easydb2 init(Context context, SQLiteDatabase.CursorFactory factory, int version) {
+    public static Easydb init(Context context, SQLiteDatabase.CursorFactory factory, int version) {
 //        if (!dbName.endsWith(".db"))
 //            dbName += ".db";
 //        dbName = dbName.replaceAll(" ", "_");
-        return new Easydb2(context, dbName, factory, version);
+        return new Easydb(context, dbName, factory, version);
     }
 
-    public static Easydb2 init(Context context, String dbName, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+    public static Easydb init(Context context, String dbName, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
         if (!dbName.endsWith(".db"))
             dbName += ".db";
         dbName = dbName.replaceAll(" ", "_");
-        return new Easydb2(context, dbName, factory, version, errorHandler);
+        return new Easydb(context, dbName, factory, version, errorHandler);
     }
 
     //
@@ -169,7 +169,7 @@ public class Easydb2 extends SQLiteOpenHelper {
     private int version;
     private DatabaseErrorHandler errorHandler;
 
-    private Easydb2(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    private Easydb(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
 
         //
@@ -179,7 +179,7 @@ public class Easydb2 extends SQLiteOpenHelper {
         this.version = version;
     }
 
-    private Easydb2(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+    private Easydb(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
         super(context, name, factory, version, errorHandler);
 
         //

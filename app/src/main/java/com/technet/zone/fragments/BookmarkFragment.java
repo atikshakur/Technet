@@ -1,7 +1,5 @@
 package com.technet.zone.fragments;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -10,17 +8,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.technet.zone.adapter.DataHolderAdapter;
-import com.technet.zone.extendedActivitys.BkExtendedNewsActivity;
 import com.technet.zone.R;
-import com.technet.zone.dbHelper.Easydb2;
+import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.model.DataModel;
-import com.technet.zone.model.News;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -32,7 +27,7 @@ public class BookmarkFragment extends Fragment implements Serializable {
 
     View v;
     ListView listView;
-    Easydb2 easydb2;
+    Easydb easydb;
     ImageView bkPostImage;
     String title, catagory;
 //    private CustomAdapter customAdapter;
@@ -60,13 +55,13 @@ public class BookmarkFragment extends Fragment implements Serializable {
         super.onViewCreated( view, savedInstanceState );
         this.v = view;
 
-        easydb2 = new Easydb2( getContext() );
+        easydb = new Easydb( getContext() );
 
         listView = v.findViewById( R.id.bookmark_listView );
         adapter = new DataHolderAdapter( Objects.requireNonNull( getContext() ), dataModel);
         listView.setAdapter(adapter);
 
-        Cursor cursor = easydb2.getAllData();
+        Cursor cursor = easydb.getAllData();
 
 //        String title, String writter, String detailnews1, String detailnews2,
 //                String detailnews3, String catagory;

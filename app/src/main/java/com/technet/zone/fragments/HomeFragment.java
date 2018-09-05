@@ -20,12 +20,11 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.extendedActivitys.ExtendedNewsActivity;
 import com.technet.zone.R;
 import com.technet.zone.dbHelper.Column;
 import com.technet.zone.dbHelper.DataType;
-import com.technet.zone.dbHelper.Easydb2;
+import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.model.News;
 import com.technet.zone.model.newsTrend;
 
@@ -94,7 +93,7 @@ public class HomeFragment extends Fragment {
 //    }
     public void populateLatestNews(){
         // FOR LATEST NEWS
-         final Easydb2 easydb2 = Easydb2.init( getContext(), null, 1 )
+         final Easydb easydb = Easydb.init( getContext(), null, 1 )
                 .setTableName("BOOKMARK_TABLE")
                 .addColumn(new Column("image", new DataType()._text_().unique().done()))
                 .addColumn(new Column("title", new DataType()._text_().unique().done()))
@@ -148,7 +147,7 @@ public class HomeFragment extends Fragment {
                     public void onClick(View v) {
                         viewHolder1.bookmarkButton.setBackgroundResource( R.drawable.ic_bookmark_black_24dp );
 
-                        easydb2.addData("image", image)
+                        easydb.addData("image", image)
                                 .addData("title", title)
                                 .addData("detailnews1", detailnews1)
                                 .addData("detailnews2", detailnews2)
