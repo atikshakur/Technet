@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="#9b4343">
+    android:background="#f4f4f4">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#536dfe"
+        android:id="@+id/bookmark_toolbar"
+        android:elevation="4dp"
+        />
     <ListView
         android:id="@+id/bookmark_listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/bookmark_toolbar"
+        >
 
     </ListView>
 

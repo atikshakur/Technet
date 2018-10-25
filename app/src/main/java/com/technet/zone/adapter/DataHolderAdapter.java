@@ -1,5 +1,6 @@
 package com.technet.zone.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -39,14 +40,16 @@ public class DataHolderAdapter extends ArrayAdapter<DataModel> {
         ImageView bkImage;
     }
 
+    @SuppressLint("InflateParams")
     @NonNull
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
         Holder holder;
         View view = null;
 
         if (view == null) {
+            assert layoutInflater != null;
             view = layoutInflater.inflate(R.layout.bk_list_item, null);
             holder = new Holder();
 

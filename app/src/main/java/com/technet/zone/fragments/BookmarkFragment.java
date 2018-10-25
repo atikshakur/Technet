@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +22,13 @@ import java.util.Objects;
 
 public class BookmarkFragment extends Fragment implements Serializable {
 
-    View v;
-    ListView listView;
-    Easydb easydb;
-    ImageView bkPostImage;
-    String title, catagory, writter, detailnews1, detailnews2, detailnews3;
-    DataHolderAdapter adapter;
+    private View v;
+    private ListView listView;
+    private Easydb easydb;
+    private ImageView bkPostImage;
+    private String title, catagory, writter, detailnews1, detailnews2, detailnews3;
+    private DataHolderAdapter adapter;
+    private Toolbar toolbar;
 
     public static ArrayList<DataModel> dataModel = new ArrayList<>();
 
@@ -40,6 +43,11 @@ public class BookmarkFragment extends Fragment implements Serializable {
         super.onViewCreated( view, savedInstanceState );
         this.v = view;
 
+        toolbar = v.findViewById( R.id.bookmark_toolbar );
+        ((AppCompatActivity) Objects.requireNonNull( getActivity() )).setSupportActionBar(toolbar);
+        Objects.requireNonNull( ((AppCompatActivity) Objects.requireNonNull( getActivity() )).getSupportActionBar() )
+                .setTitle( "Saved Articles" );
+
         easydb = new Easydb( getContext() );
 
         listView = v.findViewById( R.id.bookmark_listView );
@@ -47,6 +55,8 @@ public class BookmarkFragment extends Fragment implements Serializable {
         listView.setAdapter(adapter);
 
         Cursor cursor = easydb.getAllData();
+
+        dataModel.clear();
 
         while(cursor.moveToNext()){
             title = cursor.getString( 2 );
