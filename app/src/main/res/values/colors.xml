@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#FF4081</color>
     <color name="tint">#37000000</color>
+    <color name="purple_text">#000066</color>
+    <color name="background">#eeeeee</color>
 </resources>

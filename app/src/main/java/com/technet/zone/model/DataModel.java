@@ -23,9 +23,11 @@ public class DataModel {
         this.detailnews3 = detailnews3;
         this.catagory = catagory;
     }
-    public DataModel(String title, String writter, String detailnews1, String detailnews2,
+
+    public DataModel(String title, String image, String writter, String detailnews1, String detailnews2,
                      String detailnews3, String catagory) {
         this.title = title;
+        this.image = image;
         this.writter = writter;
         this.detailnews1 = detailnews1;
         this.detailnews2 = detailnews2;

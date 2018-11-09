@@ -37,6 +37,7 @@ public class News implements Serializable {
         this.detailnews3 = detailnews3;
         this.catagory = catagory;
     }
+
     public News(String title, String writter, String detailnews1, String detailnews2,
                 String detailnews3, String catagory) {
         this.title = title;
@@ -55,6 +56,7 @@ public class News implements Serializable {
 
         return catagory;
     }
+
     public String getWritter() {
         return writter;
     }
@@ -62,6 +64,7 @@ public class News implements Serializable {
     public void setWritter(String writter) {
         this.writter = writter;
     }
+
     public String getDetailnews1() {
         return detailnews1;
     }
@@ -69,6 +72,7 @@ public class News implements Serializable {
     public void setDetailnews1(String detailnews1) {
         this.detailnews1 = detailnews1;
     }
+
     public String getDetailnews2() {
         return detailnews2;
     }
@@ -92,7 +96,8 @@ public class News implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
-    public News(){
+
+    public News() {
 
     }
 }

@@ -17,45 +17,45 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate( savedInstanceState );
-        setContentView( R.layout.activity_main );
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        BottomNavigationViewEx bottomNavigationViewEx = findViewById( R.id.bottom_nav );
+        BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottom_nav);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace( R.id.frame_container,new HomeFragment() )
+                .replace(R.id.frame_container, new HomeFragment())
                 .commit();
 
         bottomNavigationViewEx.setOnNavigationItemSelectedListener
-                ( new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Fragment selectedFragmet = null;
+                (new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        Fragment selectedFragmet = null;
 
-                switch (item.getItemId()){
-                        case R.id.nav_home:
-                            selectedFragmet = new HomeFragment();
-                            break;
-                        case R.id.nav_bookmark:
-                            selectedFragmet = new BookmarkFragment();
-                            break;
-                        case R.id.nav_settings:
-                            selectedFragmet = new SettingsFragment();
-                            break;
-                }
-                getSupportFragmentManager()
-                        .beginTransaction()
-                        .replace( R.id.frame_container,selectedFragmet )
-                        .commit();
-                return true;
-            }
-        } );
+                        switch (item.getItemId()) {
+                            case R.id.nav_home:
+                                selectedFragmet = new HomeFragment();
+                                break;
+                            case R.id.nav_bookmark:
+                                selectedFragmet = new BookmarkFragment();
+                                break;
+                            case R.id.nav_settings:
+                                selectedFragmet = new SettingsFragment();
+                                break;
+                        }
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.frame_container, selectedFragmet)
+                                .commit();
+                        return true;
+                    }
+                });
 
-        bottomNavigationViewEx.enableAnimation( false );
-        bottomNavigationViewEx.enableItemShiftingMode( false );
-        bottomNavigationViewEx.enableShiftingMode( false);
-        bottomNavigationViewEx.setTextVisibility( false );
-        bottomNavigationViewEx.setIconSize( 28, 28 );
+        bottomNavigationViewEx.enableAnimation(false);
+        bottomNavigationViewEx.enableItemShiftingMode(false);
+        bottomNavigationViewEx.enableShiftingMode(false);
+        bottomNavigationViewEx.setTextVisibility(false);
+        bottomNavigationViewEx.setIconSize(24, 24);
 
     }
 }

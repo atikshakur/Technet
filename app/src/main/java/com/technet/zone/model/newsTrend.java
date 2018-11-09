@@ -44,6 +44,7 @@ public class newsTrend {
 
         return catagory;
     }
+
     public String getWritter() {
         return writter;
     }
@@ -51,6 +52,7 @@ public class newsTrend {
     public void setWritter(String writter) {
         this.writter = writter;
     }
+
     public String getDetailnews1() {
         return detailnews1;
     }
@@ -58,6 +60,7 @@ public class newsTrend {
     public void setDetailnews1(String detailnews1) {
         this.detailnews1 = detailnews1;
     }
+
     public String getDetailnews2() {
         return detailnews2;
     }
@@ -81,7 +84,8 @@ public class newsTrend {
     public void setImage(String image) {
         this.image = image;
     }
-    public newsTrend(){
+
+    public newsTrend() {
 
     }
 }

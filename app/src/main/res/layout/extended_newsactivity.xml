@@ -5,9 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none">
+    android:scrollbars="none"
+    >
 
     <android.support.constraint.ConstraintLayout
+        android:paddingBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
@@ -133,7 +135,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/detail_news_string2" />
+            app:layout_constraintTop_toBottomOf="@+id/detail_news_string2"
+            />
 
 
     </android.support.constraint.ConstraintLayout>

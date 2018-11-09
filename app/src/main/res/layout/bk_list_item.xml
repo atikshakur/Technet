@@ -5,41 +5,46 @@
     android:layout_width="match_parent" android:layout_height="90dp">
 
     <TextView
+        android:textColor="#dd000000"
+        android:fontFamily="@font/roboto"
+        android:padding="8dp"
+        android:textSize="18sp"
         android:id="@+id/bk_post_title"
-        android:text="title"
+        android:text="@string/title"
         android:layout_width="280dp"
         android:layout_height="90dp" />
     <TextView
-        android:text="catagory"
+        android:text="@string/catagory"
         android:id="@+id/bk_post_catagory"
         android:layout_width="0dp"
         android:layout_height="0dp"
         />
     <TextView
-        android:text="writter"
+        android:text="@string/writter"
         android:id="@+id/bk_post_writter"
         android:layout_width="0dp"
         android:layout_height="0dp"
         />
     <TextView
-        android:text="detailnews1"
+        android:text="@string/detailnews1"
         android:id="@+id/bk_post_detailnews1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         />
     <TextView
-        android:text="detailnews2"
+        android:text="@string/detailnews2"
         android:id="@+id/bk_post_detailnews2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         />
     <TextView
-        android:text="detailnews3"
+        android:text="@string/detailnews3"
         android:id="@+id/bk_post_detailnews3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         />
     <ImageView
+        android:scaleType="centerCrop"
         android:id="@+id/bk_post_image"
         android:layout_alignParentEnd="true"
         android:background="#dd652020"
