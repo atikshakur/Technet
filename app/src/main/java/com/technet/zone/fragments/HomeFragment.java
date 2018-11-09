@@ -2,6 +2,7 @@ package com.technet.zone.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.technet.zone.Activities.MainActivity;
 import com.technet.zone.extendedActivitys.ExtendedNewsActivity;
 import com.technet.zone.R;
 import com.technet.zone.dbHelper.Column;
@@ -145,7 +148,7 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onClick(View v) {
-                        viewHolder1.bookmarkButton.setBackgroundResource( R.drawable.ic_bookmark_black_24dp );
+                        viewHolder1.bookmarkButton.setChecked(true);
 
                         easydb.addData("image", image)
                                 .addData("title", title)
@@ -202,9 +205,11 @@ public class HomeFragment extends Fragment {
         trendingRecycleView.setAdapter( firebaseRecyclerAdapter2 );
     }
     public static class NewsViewHolder1 extends RecyclerView.ViewHolder{
+        Context context;
         View mView;
         CardView recycleViewCardView;
-        ImageView bookmarkButton;
+        CheckBox bookmarkButton;
+
         public NewsViewHolder1(View itemView){
             super(itemView);
             mView = itemView;
@@ -232,6 +237,7 @@ public class HomeFragment extends Fragment {
     public static class NewsViewHolder2 extends RecyclerView.ViewHolder{
 
         View mView2;
+        Context context;
         CardView recycleViewCardView2;
         public NewsViewHolder2(View itemView2){
             super(itemView2);

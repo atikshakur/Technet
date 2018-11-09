@@ -25,6 +25,11 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
         super.onCreate( savedInstanceState );
         setContentView( R.layout.bk_extended_news_activity );
 
+        // Hide the status bar.
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+
         titleText = findViewById( R.id.bk_titleText );
         mcatagory = findViewById( R.id.bk_catagory_text );
         byWritter = findViewById( R.id.bk_writer );

@@ -53,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationViewEx.enableAnimation( false );
         bottomNavigationViewEx.enableItemShiftingMode( false );
-        bottomNavigationViewEx.enableShiftingMode( false );
+        bottomNavigationViewEx.enableShiftingMode( false);
         bottomNavigationViewEx.setTextVisibility( false );
         bottomNavigationViewEx.setIconSize( 28, 28 );
+
     }
 }
