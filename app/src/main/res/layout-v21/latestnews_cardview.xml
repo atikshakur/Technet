@@ -39,6 +39,7 @@
                 android:textSize="20dp" />
 
             <CheckBox
+                android:backgroundTint="@color/purple_text"
                 android:layout_marginTop="8dp"
                 android:id="@+id/bookmark_icon"
                 android:layout_width="25dp"

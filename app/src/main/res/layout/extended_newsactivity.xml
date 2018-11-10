@@ -8,11 +8,22 @@
     android:scrollbars="none"
     >
 
+
     <android.support.constraint.ConstraintLayout
         android:paddingBottom="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/extended_news_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            android:elevation="4dp"
+            app:theme="@style/AppTheme">
+
+        </android.support.v7.widget.Toolbar>
 
         <ImageView
             android:id="@+id/detail_news_image"
@@ -26,17 +37,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/back_button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_back_arrow_left_black_24dp"
-            tools:ignore="VectorDrawableCompat" />
+        <!--<ImageView-->
+            <!--android:id="@+id/back_button"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:clickable="true"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:srcCompat="@drawable/ic_back_arrow_left_black_24dp"-->
+            <!--tools:ignore="VectorDrawableCompat" />-->
 
         <TextView
             android:id="@+id/catagory_text"

@@ -2,6 +2,7 @@ package com.technet.zone.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,6 +33,8 @@ import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.model.News;
 import com.technet.zone.model.newsTrend;
 
+import java.util.Objects;
+
 public class HomeFragment extends Fragment {
 
     //RecyclerView
@@ -41,7 +45,6 @@ public class HomeFragment extends Fragment {
     private DatabaseReference mDatabaseRefTrending;
     View v;
     private static final String TAG = "HomeFragment";
-
 
     @Nullable
     @Override
@@ -137,13 +140,10 @@ public class HomeFragment extends Fragment {
                     }
                 });
 
-                viewHolder1.bookmarkButton.setOnClickListener(new View.OnClickListener() {
-                    //init db
-
-
+                viewHolder1.bookmarkButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
-                    public void onClick(View v) {
-                        viewHolder1.bookmarkButton.setChecked(true);
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
 
                         easydb.addData("image", image)
                                 .addData("title", title)
@@ -153,6 +153,16 @@ public class HomeFragment extends Fragment {
                                 .addData("writter", writter)
                                 .addData("catagory", catagory)
                                 .doneDataAdding();
+                    }
+                });
+
+                viewHolder1.bookmarkButton.setOnClickListener(new View.OnClickListener() {
+                    //init db
+
+
+                    @Override
+                    public void onClick(View v) {
+
                     }
                 });
             }
@@ -207,11 +217,13 @@ public class HomeFragment extends Fragment {
         CardView recycleViewCardView;
         CheckBox bookmarkButton;
 
+        //        context.getPreferences(Context.MODE_PRIVATE);
         public NewsViewHolder1(View itemView) {
             super(itemView);
             mView = itemView;
             recycleViewCardView = itemView.findViewById(R.id.recycle_view_cardview);
             bookmarkButton = itemView.findViewById(R.id.bookmark_icon);
+
         }
 
         public void setTile(String title) {

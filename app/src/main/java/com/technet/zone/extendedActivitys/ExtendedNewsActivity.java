@@ -1,9 +1,10 @@
 package com.technet.zone.extendedActivitys;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.technet.zone.R;
+
+import java.util.Objects;
 
 public class ExtendedNewsActivity extends AppCompatActivity {
 
@@ -29,18 +32,22 @@ public class ExtendedNewsActivity extends AppCompatActivity {
 
         // Hide the status bar.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        backButton = findViewById(R.id.back_button);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.extended_news_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getIncomongIntent();
 
         Log.d(TAG, "onCreate: started");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(menuItem);
     }
 
     private void getIncomongIntent() {
@@ -90,5 +97,6 @@ public class ExtendedNewsActivity extends AppCompatActivity {
         detailsNews3.setText(detailnews3);
 
     }
+
 
 }

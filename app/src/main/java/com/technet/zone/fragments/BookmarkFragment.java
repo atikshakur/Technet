@@ -1,10 +1,13 @@
 package com.technet.zone.fragments;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -13,12 +16,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
 import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.R;
-import com.technet.zone.dbHelper.Column;
-import com.technet.zone.dbHelper.DataType;
 import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.model.DataModel;
 import java.io.Serializable;
@@ -30,7 +30,6 @@ public class BookmarkFragment extends Fragment implements Serializable {
     private View v;
     private ListView listView;
     private Easydb easydb;
-    private ImageView bkPostImage;
     private String title, image,catagory, writter, detailnews1, detailnews2, detailnews3;
     private DataHolderAdapter adapter;
     private Toolbar toolbar;
@@ -75,35 +74,39 @@ public class BookmarkFragment extends Fragment implements Serializable {
             catagory = cursor.getString( 7 );
             dataModel.add(new DataModel(title, image,writter, detailnews1, detailnews2, detailnews3, catagory));
         }
-
     }
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.menu2, menu);
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        final Easydb easydb = Easydb.init(getContext(), null, 1)
-                .setTableName("BOOKMARK_TABLE")
-                .addColumn(new Column("image", new DataType()._text_().unique().done()))
-                .addColumn(new Column("title", new DataType()._text_().unique().done()))
-                .addColumn(new Column("detailnews1", new DataType()._text_().unique().done()))
-                .addColumn(new Column("detailnews2", new DataType()._text_().unique().done()))
-                .addColumn(new Column("detailnews3", new DataType()._text_().unique().done()))
-                .addColumn(new Column("writter", new DataType()._text_().done()))
-                .addColumn(new Column("catagory", new DataType()._text_().done()))
-                .doneTableColumn();
-
         super.onOptionsItemSelected( item );
         int id = item.getItemId();
         switch (id){
             case R.id.delete:
-                easydb.deleteAllDataFromTable();
-                getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+                deleteAll();
                 break;
         }
         return true;
+    }
+    private void deleteAll(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setMessage("Delete all saved articles?");
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                easydb.deleteAllDataFromTable();
+                getFragmentManager().beginTransaction().detach(BookmarkFragment.this).attach(BookmarkFragment.this).commit();
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 }

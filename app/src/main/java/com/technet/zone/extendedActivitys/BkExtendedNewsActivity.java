@@ -2,6 +2,7 @@ package com.technet.zone.extendedActivitys;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -30,6 +31,11 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
 
         // Hide the status bar.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        Toolbar toolbar = findViewById(R.id.extended_news_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         titleText = findViewById(R.id.bk_titleText);
         newsImage = findViewById(R.id.bk_detail_news_image);

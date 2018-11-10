@@ -53,6 +53,9 @@ dependencies {
     //Ripple effect lib
     implementation 'com.balysv:material-ripple:1.0.2'
 
+    //Fancy Dialog
+
+
 }
 
 apply plugin: 'com.google.gms.google-services'
