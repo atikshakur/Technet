@@ -30,7 +30,6 @@ public class SettingsFragment extends Fragment {
     View v;
     private Toolbar toolbar;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -55,13 +54,16 @@ public class SettingsFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                switch (position){
+                switch (position) {
                     case 0:
                         openEmailClient();
+                        break;
                     case 1:
                         rateApp();
+                        break;
                     case 2:
                         shareApp();
+                        break;
                 }
             }
         });
@@ -71,7 +73,7 @@ public class SettingsFragment extends Fragment {
         listViewAbout.setAdapter(adapter2);
     }
 
-    private void openEmailClient(){
+    private void openEmailClient() {
         String[] recipients = {"technetdevs@gmail.com"};
         String subject = "Technet app review";
         Intent intent = new Intent(Intent.ACTION_SEND);
@@ -84,18 +86,20 @@ public class SettingsFragment extends Fragment {
     private void rateApp() {
         final String appPackageName = "com.technet.zone"; // getPackageName() from Context or Activity object
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+            Intent rateAppIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName));
+            startActivity(rateAppIntent);
         } catch (android.content.ActivityNotFoundException anfe) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+            Intent rateAppIntent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName));
+            startActivity(rateAppIntent2);
         }
     }
 
-    private void shareApp(){
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
+    private void shareApp() {
+        Intent shareAppIntent = new Intent(Intent.ACTION_SEND);
+        shareAppIntent.setType("text/plain");
         String appLink = "Hi! Get the Technet app : https://play.google.com/store/apps/details?id=com.technet.zone";
-        intent.putExtra(Intent.EXTRA_TEXT, appLink);
-        startActivity(Intent.createChooser(intent, "Share Using"));
+        shareAppIntent.putExtra(Intent.EXTRA_TEXT, appLink);
+        startActivity(Intent.createChooser(shareAppIntent, "Share Using"));
     }
 
 }
