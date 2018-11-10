@@ -1,6 +1,8 @@
 package com.technet.zone.fragments;
 
 import android.content.Intent;
+import android.content.SearchRecentSuggestionsProvider;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -52,12 +54,14 @@ public class SettingsFragment extends Fragment {
         listViewSupport.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 0) {
-                    String[] recipients = {"technetdevs@gmail.com"};
-                    Intent intent = new Intent(Intent.ACTION_SEND);
-                    intent.putExtra(Intent.EXTRA_EMAIL, recipients);
-                    intent.setType("message/rfc822");
-                    startActivity(Intent.createChooser(intent, "Choose an email client"));
+
+                switch (position){
+                    case 0:
+                        openEmailClient();
+                    case 1:
+                        rateApp();
+                    case 2:
+                        shareApp();
                 }
             }
         });
@@ -66,4 +70,32 @@ public class SettingsFragment extends Fragment {
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, about);
         listViewAbout.setAdapter(adapter2);
     }
+
+    private void openEmailClient(){
+        String[] recipients = {"technetdevs@gmail.com"};
+        String subject = "Technet app review";
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose an Email client"));
+    }
+
+    private void rateApp() {
+        final String appPackageName = "com.technet.zone"; // getPackageName() from Context or Activity object
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (android.content.ActivityNotFoundException anfe) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
+    }
+
+    private void shareApp(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        String appLink = "Hi! Get the Technet app : https://play.google.com/store/apps/details?id=com.technet.zone";
+        intent.putExtra(Intent.EXTRA_TEXT, appLink);
+        startActivity(Intent.createChooser(intent, "Share Using"));
+    }
+
 }
