@@ -32,7 +32,7 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
         // Hide the status bar.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Toolbar toolbar = findViewById(R.id.extended_news_toolbar);
+        Toolbar toolbar = findViewById(R.id.bkextended_news_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
