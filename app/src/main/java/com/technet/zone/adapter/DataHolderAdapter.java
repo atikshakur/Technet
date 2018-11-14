@@ -3,19 +3,25 @@ package com.technet.zone.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.technet.zone.R;
+import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.extendedActivitys.BkExtendedNewsActivity;
 import com.technet.zone.model.DataModel;
 
@@ -23,12 +29,11 @@ import java.util.ArrayList;
 
 public class DataHolderAdapter extends ArrayAdapter<DataModel> {
 
-    ArrayList<DataModel> dataModels = new ArrayList<>();
+    private ArrayList<DataModel> dataModels = new ArrayList<>();
     Context context;
 
-
     public DataHolderAdapter(@NonNull Context context, ArrayList<DataModel> dataModels) {
-        super(context, R.layout.bk_list_item, dataModels);
+        super(context, R.layout.bk_list_item_card, dataModels);
 
         this.context = context;
         this.dataModels = dataModels;
@@ -36,9 +41,10 @@ public class DataHolderAdapter extends ArrayAdapter<DataModel> {
 
     class Holder {
         ListView listView;
-        RelativeLayout relativeLayout;
-        TextView bkTitle, bkCatagory, bkWritter, bkDetailnews1, bkDetailnews2, bkDetailnews3;
+        CardView bkCardView;
+        TextView bkTitle;
         ImageView bkImage;
+        Button deleteBookmarkItem;
     }
 
     @SuppressLint("InflateParams")
@@ -51,20 +57,14 @@ public class DataHolderAdapter extends ArrayAdapter<DataModel> {
 
         if (view == null) {
             assert layoutInflater != null;
-            view = layoutInflater.inflate(R.layout.bk_list_item, null);
+            view = layoutInflater.inflate(R.layout.bk_list_item_card, null);
             holder = new Holder();
 
-            holder.relativeLayout = view.findViewById(R.id.bk_list_item_id);
+            holder.bkCardView = view.findViewById(R.id.bk_list_item_id);
             holder.listView = view.findViewById(R.id.bookmark_listView);
-
             holder.bkTitle = view.findViewById(R.id.bk_post_title);
             holder.bkImage = view.findViewById(R.id.bk_post_image);
-            holder.bkCatagory = view.findViewById(R.id.bk_post_catagory);
-            holder.bkWritter = view.findViewById(R.id.bk_post_writter);
-            holder.bkDetailnews1 = view.findViewById(R.id.bk_post_detailnews1);
-            holder.bkDetailnews2 = view.findViewById(R.id.bk_post_detailnews2);
-            holder.bkDetailnews3 = view.findViewById(R.id.bk_post_detailnews3);
-            //          holder.bkImage = view.findViewById( R.id.bk_post_image );
+//            holder.deleteBookmarkItem = view.findViewById(R.id.delete_bookmark_item);
 
             view.setTag(holder);
 
@@ -76,15 +76,8 @@ public class DataHolderAdapter extends ArrayAdapter<DataModel> {
 
         holder.bkTitle.setText(dm.getTitle());
         Glide.with(context).load(dm.getImage()).into(holder.bkImage);
-        holder.bkCatagory.setText(dm.getCatagory());
-        holder.bkWritter.setText(dm.getWritter());
-        holder.bkDetailnews1.setText(dm.getDetailnews1());
-        holder.bkDetailnews2.setText(dm.getDetailnews2());
-        holder.bkDetailnews3.setText(dm.getDetailnews3());
-        //       holder.bkImage.setText(dm.getTitle());
 
-
-        holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
+        holder.bkCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), BkExtendedNewsActivity.class);

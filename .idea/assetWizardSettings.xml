@@ -28,9 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="color" value="4285f4" />
-                            <entry key="outputName" value="ic_outline_delete_outline_24px" />
+                            <entry key="color" value="000066" />
+                            <entry key="outputName" value="ic_delete_purple_24dp" />
                             <entry key="sourceFile" value="F:\Downloads\outline-delete_outline-24px.svg" />
                           </map>
                         </option>

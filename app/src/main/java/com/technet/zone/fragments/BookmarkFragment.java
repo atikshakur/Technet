@@ -16,6 +16,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ListView;
 import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.R;
@@ -33,6 +34,7 @@ public class BookmarkFragment extends Fragment implements Serializable {
     private String title, image,catagory, writter, detailnews1, detailnews2, detailnews3;
     private DataHolderAdapter adapter;
     private Toolbar toolbar;
+    private String _id;
 
     public static ArrayList<DataModel> dataModel = new ArrayList<>();
 
@@ -65,6 +67,7 @@ public class BookmarkFragment extends Fragment implements Serializable {
         dataModel.clear();
 
         while(cursor.moveToNext()){
+            _id = cursor.getString(0);
             image = cursor.getString(1);
             title = cursor.getString( 2 );
             writter = cursor.getString( 6 );
@@ -72,7 +75,7 @@ public class BookmarkFragment extends Fragment implements Serializable {
             detailnews2 = cursor.getString( 4 );
             detailnews3 = cursor.getString( 5);
             catagory = cursor.getString( 7 );
-            dataModel.add(new DataModel(title, image,writter, detailnews1, detailnews2, detailnews3, catagory));
+            dataModel.add(new DataModel(_id ,title, image,writter, detailnews1, detailnews2, detailnews3, catagory));
         }
     }
     @Override

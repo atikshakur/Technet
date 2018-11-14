@@ -15,14 +15,13 @@
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="T R E N D I N G"
+            android:text="@string/t_r_e_n_d"
             android:textColor="@color/purple_text"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="13dp"/>
 
         <android.support.v7.widget.RecyclerView
             android:elevation="4dp"
             android:layout_below="@+id/Trending_text"
-            android:layout_marginStart="1dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="4dp"
             android:id="@+id/recycle_view_trending"
@@ -32,17 +31,14 @@
         <TextView
             android:textSize="14sp"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="10dp"
             android:id="@+id/Latest_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="L A T E S T"
+            android:text="@string/l_a_t_e_s_t"
             android:textColor="#000066"
             android:layout_below="@id/recycle_view_trending"/>
         <android.support.v7.widget.RecyclerView
-            android:elevation="4dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
             android:layout_marginTop="8dp"
             android:layout_below="@+id/Latest_text"
             android:id="@+id/recycle_view_latest"
