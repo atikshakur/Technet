@@ -37,7 +37,7 @@
                 android:padding="10dp"
                 android:text="Title"
                 android:textColor="#dd000000"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+                android:textAppearance="@style/TextAppearance.AppCompat.Title" />
 
             <CheckBox
                 android:id="@+id/bookmark_icon"

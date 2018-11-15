@@ -1,120 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbars="none">
+    android:layout_width="match_parent"
+    >
 
-    <RelativeLayout
-        android:paddingBottom="30dp"
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bkextended_news_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        app:theme="@style/AppTheme">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:paddingBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/bk_detail_news_image"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@android:color/holo_blue_dark"
+                android:contentDescription="@string/todo"
+                android:scaleType="centerCrop" />
+
+
+            <TextView
+                android:layout_below="@id/bk_detail_news_image"
+                android:id="@+id/bk_catagory_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="catagory"
+                android:textColor="#000066" />
+
+            <TextView
+                android:layout_below="@id/bk_catagory_text"
+                android:id="@+id/bk_titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/lato_bold"
+                android:lineSpacingExtra="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="title"
+                android:textColor="#222222"
+                android:textSize="21sp" />
+
+            <TextView
+                android:id="@+id/bk_writer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="writter"
+                android:textColor="#999999"
+                android:layout_below="@id/bk_titleText" />
+
+            <TextView
+                android:id="@+id/bk_detail_news_string1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:lineSpacingExtra="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="@string/this_is_a_news"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#3D3D3D"
+                android:textSize="18sp"
+                android:layout_below="@id/bk_writer" />
+
+            <TextView
+                android:text="detail news 2"
+                android:id="@+id/bk_detail_news_string2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:lineSpacingExtra="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#3D3D3D"
+                android:textSize="18sp"
+                android:layout_below="@id/bk_detail_news_string1" />
+
+            <TextView
+                android:id="@+id/bk_detail_news_string3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto"
+                android:lineSpacingExtra="8dp"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:text="detail news 3"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textColor="#3D3D3D"
+                android:textSize="18sp"
+                android:layout_below="@id/bk_detail_news_string2"
+                android:paddingBottom="50dp"/>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adViewBk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+    </com.google.android.gms.ads.AdView>
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/bkextended_news_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@android:color/transparent"
-            android:elevation="4dp"
-            app:theme="@style/AppTheme">
-
-        </android.support.v7.widget.Toolbar>
-
-        <ImageView
-            android:id="@+id/bk_detail_news_image"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:background="@android:color/holo_blue_dark"
-            android:contentDescription="@string/todo"
-            android:scaleType="centerCrop" />
-
-
-        <TextView
-            android:layout_below="@id/bk_detail_news_image"
-            android:id="@+id/bk_catagory_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="catagory"
-            android:textColor="#000066" />
-
-        <TextView
-            android:layout_below="@id/bk_catagory_text"
-            android:id="@+id/bk_titleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/lato_bold"
-            android:lineSpacingExtra="8dp"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            android:text="title"
-            android:textColor="#222222"
-            android:textSize="21sp"/>
-
-        <TextView
-            android:id="@+id/bk_writer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            android:text="writter"
-            android:textColor="#999999"
-            android:layout_below="@id/bk_titleText"/>
-
-        <TextView
-            android:id="@+id/bk_detail_news_string1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto"
-            android:lineSpacingExtra="8dp"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            android:text="@string/this_is_a_news"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="#3D3D3D"
-            android:textSize="18sp"
-            android:layout_below="@id/bk_writer"/>
-
-        <TextView
-            android:text="detail news 2"
-            android:id="@+id/bk_detail_news_string2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto"
-            android:lineSpacingExtra="8dp"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="#3D3D3D"
-            android:textSize="18sp"
-            android:layout_below="@id/bk_detail_news_string1"
-             />
-
-        <TextView
-            android:id="@+id/bk_detail_news_string3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto"
-            android:lineSpacingExtra="8dp"
-            android:paddingEnd="16dp"
-            android:paddingStart="16dp"
-            android:text="detail news 3"
-            android:textAppearance="@style/TextAppearance.AppCompat"
-            android:textColor="#3D3D3D"
-            android:textSize="18sp"
-            android:layout_below="@id/bk_detail_news_string2"/>
-
-
-    </RelativeLayout>
-
-</ScrollView>
+</RelativeLayout>

@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.technet.zone.R;
 
 import java.io.Serializable;
@@ -22,6 +25,7 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
     private TextView titleText;
     private TextView mcatagory;
     private ImageView newsImage;
+    private AdView adView;
 
     private static final String TAG = "ExtendedNewsActivity";
 
@@ -46,23 +50,30 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
         detailsNews2Text = findViewById(R.id.bk_detail_news_string2);
         detailsNews3Text = findViewById(R.id.bk_detail_news_string3);
 
-        if (getIntent().hasExtra("title") && getIntent().hasExtra("catagory")) {
-            String title = getIntent().getStringExtra("title");
-            String image = getIntent().getStringExtra("image");
-            String catagory = getIntent().getStringExtra("catagory");
-            String writter = getIntent().getStringExtra("writter");
-            String detailnews1 = getIntent().getStringExtra("detailnews1");
-            String detailnews2 = getIntent().getStringExtra("detailnews2");
-            String detailnews3 = getIntent().getStringExtra("detailnews3");
+        MobileAds.initialize(BkExtendedNewsActivity.this, "ca-app-pub-3940256099942544~3347511713");
+        adView = findViewById(R.id.adViewBk);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("26D9F90FAEED5F90E9E2F4BC866FB1D7").build();
+        adView.loadAd(adRequest);
 
-            titleText.setText(title);
-            Glide.with(BkExtendedNewsActivity.this).load(image).into(newsImage);
-            mcatagory.setText(catagory);
-            byWritter.setText(writter);
-            detailsNews1Text.setText(detailnews1);
-            detailsNews2Text.setText(detailnews2);
-            detailsNews3Text.setText(detailnews3);
-        }
+        setExtras();
+    }
+
+    private void setExtras() {
+        String title = getIntent().getStringExtra("title");
+        String image = getIntent().getStringExtra("image");
+        String catagory = getIntent().getStringExtra("catagory");
+        String writter = getIntent().getStringExtra("writter");
+        String detailnews1 = getIntent().getStringExtra("detailnews1");
+        String detailnews2 = getIntent().getStringExtra("detailnews2");
+        String detailnews3 = getIntent().getStringExtra("detailnews3");
+
+        titleText.setText(title);
+        Glide.with(BkExtendedNewsActivity.this).load(image).into(newsImage);
+        mcatagory.setText(catagory);
+        byWritter.setText(writter);
+        detailsNews1Text.setText(detailnews1);
+        detailsNews2Text.setText(detailnews2);
+        detailsNews3Text.setText(detailnews3);
     }
 
     @Override

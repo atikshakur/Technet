@@ -53,7 +53,8 @@ dependencies {
     //Ripple effect lib
     implementation 'com.balysv:material-ripple:1.0.2'
 
-    //Fancy Dialog
+    //Admob
+    implementation 'com.google.android.gms:play-services-ads:11.8.0'
 
 
 }

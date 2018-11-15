@@ -14,8 +14,8 @@
     card_view:cardUseCompatPadding="true"
     android:id="@+id/recycle_view_cardview_trending"
     android:background="#d3d3"
-    android:theme="@style/MaterialAppTheme"
-    >
+    android:theme="@style/MaterialAppTheme">
+
     <RelativeLayout
         android:layout_width="300dp"
         android:layout_height="200dp"
@@ -33,6 +33,7 @@
             android:scaleType="centerCrop"
 
             />
+
         <LinearLayout
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
@@ -47,8 +48,7 @@
                 android:text="Non Google apps can acces gmail"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
-                android:fontFamily="@font/american_typewriter"
-                />
+                android:fontFamily="@font/american_typewriter" />
         </LinearLayout>
 
 

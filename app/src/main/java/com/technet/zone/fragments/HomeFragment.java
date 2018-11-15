@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -45,6 +46,7 @@ public class HomeFragment extends Fragment {
     private DatabaseReference mDatabaseRefTrending;
     View v;
     private static final String TAG = "HomeFragment";
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Nullable
     @Override
@@ -57,6 +59,16 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         this.v = view;
+        swipeRefreshLayout = v.findViewById(R.id.swipe_to_refresh);
+        swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.purple_text));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                populateLatestNews();
+                populateTrendingNews();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         //latest News
         mDatabaseRef = FirebaseDatabase.getInstance().getReference().child("LatestNews");

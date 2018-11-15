@@ -18,10 +18,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+
 import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.R;
 import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.model.DataModel;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -31,7 +33,7 @@ public class BookmarkFragment extends Fragment implements Serializable {
     private View v;
     private ListView listView;
     private Easydb easydb;
-    private String title, image,catagory, writter, detailnews1, detailnews2, detailnews3;
+    private String title, image, catagory, writter, detailnews1, detailnews2, detailnews3;
     private DataHolderAdapter adapter;
     private Toolbar toolbar;
     private String _id;
@@ -42,42 +44,43 @@ public class BookmarkFragment extends Fragment implements Serializable {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate( R.layout.fragment_bookmark, container, false );
+        return inflater.inflate(R.layout.fragment_bookmark, container, false);
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated( view, savedInstanceState );
+        super.onViewCreated(view, savedInstanceState);
         this.v = view;
 
-        toolbar = v.findViewById( R.id.bookmark_toolbar );
-        ((AppCompatActivity) Objects.requireNonNull( getActivity() )).setSupportActionBar(toolbar);
-        Objects.requireNonNull( ((AppCompatActivity) Objects.requireNonNull( getActivity() )).getSupportActionBar() )
-                .setTitle( "Saved Articles" );
+        toolbar = v.findViewById(R.id.bookmark_toolbar);
+        ((AppCompatActivity) Objects.requireNonNull(getActivity())).setSupportActionBar(toolbar);
+        Objects.requireNonNull(((AppCompatActivity) Objects.requireNonNull(getActivity())).getSupportActionBar())
+                .setTitle("Saved Articles");
 
-        easydb = new Easydb( getContext() );
+        easydb = new Easydb(getContext());
 
-        listView = v.findViewById( R.id.bookmark_listView );
-        adapter = new DataHolderAdapter( Objects.requireNonNull( getContext() ), dataModel);
+        listView = v.findViewById(R.id.bookmark_listView);
+        adapter = new DataHolderAdapter(Objects.requireNonNull(getContext()), dataModel);
         listView.setAdapter(adapter);
 
         Cursor cursor = easydb.getAllData();
 
         dataModel.clear();
 
-        while(cursor.moveToNext()){
+        while (cursor.moveToNext()) {
             _id = cursor.getString(0);
             image = cursor.getString(1);
-            title = cursor.getString( 2 );
-            writter = cursor.getString( 6 );
-            detailnews1 = cursor.getString( 3 );
-            detailnews2 = cursor.getString( 4 );
-            detailnews3 = cursor.getString( 5);
-            catagory = cursor.getString( 7 );
-            dataModel.add(new DataModel(_id ,title, image,writter, detailnews1, detailnews2, detailnews3, catagory));
+            title = cursor.getString(2);
+            writter = cursor.getString(6);
+            detailnews1 = cursor.getString(3);
+            detailnews2 = cursor.getString(4);
+            detailnews3 = cursor.getString(5);
+            catagory = cursor.getString(7);
+            dataModel.add(new DataModel(_id, title, image, writter, detailnews1, detailnews2, detailnews3, catagory));
         }
     }
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.menu2, menu);
@@ -85,16 +88,17 @@ public class BookmarkFragment extends Fragment implements Serializable {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        super.onOptionsItemSelected( item );
+        super.onOptionsItemSelected(item);
         int id = item.getItemId();
-        switch (id){
+        switch (id) {
             case R.id.delete:
                 deleteAll();
                 break;
         }
         return true;
     }
-    private void deleteAll(){
+
+    private void deleteAll() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setMessage("Delete all saved articles?");
         builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
