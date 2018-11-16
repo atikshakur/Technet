@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "722912504630-bagg3ke3f6ltoolfgahnslm46mq6v7d8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.technet.zone",
+            "certificate_hash": "eb8209cb5541dbfa2e480ce1a354cd135640ec02"
+          }
+        },
+        {
           "client_id": "722912504630-k03jngtbjajskr3407rskddk361jc6ll.apps.googleusercontent.com",
           "client_type": 3
         }
