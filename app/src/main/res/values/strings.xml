@@ -22,5 +22,8 @@
     <string name="t_r_e_n_d">T R E N D I N G</string>
     <string name="default_notification_channel_id">Technet</string>
     <string name="fcm_message">Technet</string>
+    <string name="default_bk_txt">You haven\'t saved any articles yet</string>
+    <string name="support">SUPPORT</string>
+    <string name="about">ABOUT</string>
 
 </resources>

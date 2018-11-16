@@ -29,7 +29,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="0dp"
             android:layout_marginTop="0dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:scaleType="centerCrop"
 
             />
@@ -43,9 +43,8 @@
                 android:id="@+id/post_title"
                 android:layout_width="265dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:padding="8dp"
-                android:text="Non Google apps can acces gmail"
+                android:text="@string/fortnite_coming_for_android_on_july_24"
                 android:textColor="@android:color/white"
                 android:textSize="26sp"
                 android:fontFamily="@font/american_typewriter" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.v4.widget.SwipeRefreshLayout android:layout_width="match_parent"
+<android.support.v4.widget.SwipeRefreshLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/swipe_to_refresh"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -10,9 +10,6 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:background="#eeeeee">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -30,7 +27,6 @@
                     android:layout_marginStart="13dp" />
 
                 <android.support.v7.widget.RecyclerView
-                    android:elevation="4dp"
                     android:layout_below="@+id/Trending_text"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="4dp"
@@ -56,8 +52,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
             </RelativeLayout>
-
-        </RelativeLayout>
 
     </android.support.v4.widget.NestedScrollView>
 

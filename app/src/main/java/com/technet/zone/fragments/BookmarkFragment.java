@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.R;
@@ -78,6 +79,8 @@ public class BookmarkFragment extends Fragment implements Serializable {
             detailnews3 = cursor.getString(5);
             catagory = cursor.getString(7);
             dataModel.add(new DataModel(_id, title, image, writter, detailnews1, detailnews2, detailnews3, catagory));
+            TextView textView = v.findViewById(R.id.no_bookmark_tv);
+            textView.setVisibility(View.GONE);
         }
     }
 
