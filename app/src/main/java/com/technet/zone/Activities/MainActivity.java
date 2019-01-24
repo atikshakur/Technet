@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import com.onesignal.OneSignal;
 import com.technet.zone.R;
 import com.technet.zone.fragments.BookmarkFragment;
 import com.technet.zone.fragments.HomeFragment;
@@ -20,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-      //  FirebaseMessaging.getInstance().subscribeToTopic("Technet");
+        //OneSignal
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
 
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottom_nav);
         getSupportFragmentManager()
