@@ -85,6 +85,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#3D3D3D"
                 android:textSize="18sp"
+                android:autoLink="web"
                 android:layout_below="@id/bk_writer" />
 
             <TextView
@@ -100,6 +101,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#3D3D3D"
                 android:textSize="18sp"
+                android:autoLink="web"
                 android:layout_below="@id/bk_detail_news_string1" />
 
             <TextView
@@ -115,6 +117,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 android:textColor="#3D3D3D"
                 android:textSize="18sp"
+                android:autoLink="web"
                 android:layout_below="@id/bk_detail_news_string2"
                 android:paddingBottom="50dp"/>
 
