@@ -32,6 +32,9 @@
 
         <activity android:name=".extendedActivitys.BkExtendedNewsActivity" />
         <activity android:name=".Activities.MainActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="eb55f34bd2024237556960cd615b0ebabeb77626" />
     </application>
 
 </manifest>
