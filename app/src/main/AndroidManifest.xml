@@ -31,7 +31,7 @@
             android:value="@string/default_notification_channel_id" />
 
         <activity android:name=".extendedActivitys.BkExtendedNewsActivity" />
-        <activity android:name=".Activities.MainActivity"></activity>
+        <activity android:name=".Activities.MainActivity" />
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="4ad72d69d61e5eb0b155c2594c88867ab4b19f2f" />
