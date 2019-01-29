@@ -24,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/t_r_e_n_d"
                     android:textColor="@color/purple_text"
-                    android:layout_marginStart="13dp" />
+                    android:layout_marginStart="10dp" />
 
                 <android.support.v7.widget.RecyclerView
                     android:layout_below="@+id/Trending_text"
