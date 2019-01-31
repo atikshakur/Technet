@@ -5,15 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.technet.zone.R;
 
 public class ExtendedNewsActivity extends AppCompatActivity {
@@ -39,10 +36,6 @@ public class ExtendedNewsActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        MobileAds.initialize(ExtendedNewsActivity.this, "ca-app-pub-3940256099942544~3347511713");
-        adView = findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("26D9F90FAEED5F90E9E2F4BC866FB1D7").build();
-        adView.loadAd(adRequest);
 
         getIncomongIntent();
 
