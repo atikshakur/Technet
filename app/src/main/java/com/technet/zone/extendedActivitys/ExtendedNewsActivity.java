@@ -7,11 +7,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.ads.AdView;
 import com.technet.zone.R;
+import com.facebook.ads.*;
 
 public class ExtendedNewsActivity extends AppCompatActivity {
 
@@ -29,6 +30,13 @@ public class ExtendedNewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.extended_newsactivity);
 
+
+        //FAN
+        adView = new AdView(this, "307551880119972_307552376786589", AdSize.BANNER_HEIGHT_50);
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.ex_banner);
+        adContainer.addView(adView);
+        adView.loadAd();
+
         // Hide the status bar.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Toolbar toolbar = findViewById(R.id.extended_news_toolbar);
@@ -40,6 +48,14 @@ public class ExtendedNewsActivity extends AppCompatActivity {
         getIncomongIntent();
 
         Log.d(TAG, "onCreate: started");
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
     }
 
     @Override

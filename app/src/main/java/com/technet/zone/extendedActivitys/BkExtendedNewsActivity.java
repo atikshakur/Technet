@@ -6,9 +6,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.facebook.ads.AdSize;
+import com.facebook.ads.AdView;
 import com.technet.zone.R;
 
 import java.io.Serializable;
@@ -20,6 +23,7 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
     private TextView titleText;
     private TextView mcatagory;
     private ImageView newsImage;
+    private AdView adView;
 
     private static final String TAG = "ExtendedNewsActivity";
 
@@ -27,6 +31,12 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bk_extended_news_activity);
+
+        //FAN
+        adView = new AdView(this, "307551880119972_307556003452893", AdSize.BANNER_HEIGHT_50);
+        LinearLayout adContainer = (LinearLayout) findViewById(R.id.bk_banner);
+        adContainer.addView(adView);
+        adView.loadAd();
 
         // Hide the status bar.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
