@@ -58,6 +58,14 @@ public class BkExtendedNewsActivity extends AppCompatActivity implements Seriali
         setExtras();
     }
 
+    @Override
+    protected void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
     private void setExtras() {
         String title = getIntent().getStringExtra("title");
         String image = getIntent().getStringExtra("image");

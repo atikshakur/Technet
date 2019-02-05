@@ -26,7 +26,7 @@ public class SettingsFragment extends Fragment {
 
     private ListView listViewSupport, listViewAbout;
     private String[] supportList = {"Provide Feedback", "Rate App", "Share App",};
-    private String[] about = {"Version 1.0"};
+    private String[] about = {"Version 1.1.1"};
     View v;
     private Toolbar toolbar;
 
