@@ -26,4 +26,11 @@
     <string name="support">SUPPORT</string>
     <string name="about">ABOUT</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="today_s_picks">Today\'s Picks</string>
+    <string name="we_picked_some_links_for_you"> We picked some links for you.</string>
+    <string name="supercharge_your_command_line_experience_github_cli_is_now_in_beta">Supercharge your command line experience: Github CLI is now in beta</string>
+    <string name="the_verge">The Verge</string>
+
 </resources>

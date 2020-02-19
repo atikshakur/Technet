@@ -1,22 +1,20 @@
 package com.technet.zone.fragments;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,6 +22,8 @@ import com.technet.zone.adapter.DataHolderAdapter;
 import com.technet.zone.R;
 import com.technet.zone.dbHelper.Easydb;
 import com.technet.zone.model.DataModel;
+import com.technet.zone.model.DataModelV2;
+import com.technet.zone.model.Newsv2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -34,12 +34,12 @@ public class BookmarkFragment extends Fragment implements Serializable {
     private View v;
     private ListView listView;
     private Easydb easydb;
-    private String title, image, catagory, writter, detailnews1, detailnews2, detailnews3;
+    private String url, imageUrl, title, source;
     private DataHolderAdapter adapter;
     private Toolbar toolbar;
     private String _id;
 
-    public static ArrayList<DataModel> dataModel = new ArrayList<>();
+    public static ArrayList<DataModelV2> dataModel = new ArrayList<>();
 
     @Nullable
     @Override
@@ -71,14 +71,10 @@ public class BookmarkFragment extends Fragment implements Serializable {
 
         while (cursor.moveToNext()) {
             _id = cursor.getString(0);
-            image = cursor.getString(1);
-            title = cursor.getString(2);
-            writter = cursor.getString(6);
-            detailnews1 = cursor.getString(3);
-            detailnews2 = cursor.getString(4);
-            detailnews3 = cursor.getString(5);
-            catagory = cursor.getString(7);
-            dataModel.add(new DataModel(_id, title, image, writter, detailnews1, detailnews2, detailnews3, catagory));
+            url = cursor.getString(1);
+            imageUrl = cursor.getString(2);
+            title = cursor.getString(3);
+            dataModel.add(new DataModelV2(_id, url, imageUrl, title));
             TextView textView = v.findViewById(R.id.no_bookmark_tv);
             textView.setVisibility(View.GONE);
         }

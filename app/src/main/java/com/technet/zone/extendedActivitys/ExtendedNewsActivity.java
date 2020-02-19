@@ -1,13 +1,12 @@
 package com.technet.zone.extendedActivitys;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -32,10 +31,13 @@ public class ExtendedNewsActivity extends AppCompatActivity {
 
 
         //FAN
+        /*
         adView = new AdView(this, "307551880119972_307552376786589", AdSize.BANNER_HEIGHT_50);
         LinearLayout adContainer = (LinearLayout) findViewById(R.id.ex_banner);
         adContainer.addView(adView);
         adView.loadAd();
+        */
+
 
         // Hide the status bar.
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

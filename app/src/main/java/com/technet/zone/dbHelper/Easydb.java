@@ -12,10 +12,10 @@ import java.util.ArrayList;
 public class Easydb extends SQLiteOpenHelper {
 
     // Variables
-    private String DATABASE_NAME, TABLE_NAME = "BOOKMARK_TABLE", SQL = "";
+    private String DATABASE_NAME, TABLE_NAME = "bookmarks", SQL = "";
     private ArrayList<Column> columns = new ArrayList<>();
     private SQLiteDatabase writableDatabase;
-    ContentValues contentValues = new ContentValues();
+    private ContentValues contentValues = new ContentValues();
     private boolean initedDb = false;
     private static final String dbName = "bookmarks.db";
 

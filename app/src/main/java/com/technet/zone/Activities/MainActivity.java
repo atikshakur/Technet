@@ -1,17 +1,17 @@
 package com.technet.zone.Activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 import com.onesignal.OneSignal;
 import com.technet.zone.R;
 import com.technet.zone.fragments.BookmarkFragment;
-import com.technet.zone.fragments.HomeFragment;
+import com.technet.zone.fragments.HomeFragmentv2;
 import com.technet.zone.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,29 +30,29 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewEx bottomNavigationViewEx = findViewById(R.id.bottom_nav);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frame_container, new HomeFragment())
+                .replace(R.id.frame_container, new HomeFragmentv2())
                 .commit();
 
         bottomNavigationViewEx.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Fragment selectedFragmet = null;
+                        Fragment selectedFragment = null;
 
                         switch (item.getItemId()) {
                             case R.id.nav_home:
-                                selectedFragmet = new HomeFragment();
+                                selectedFragment = new HomeFragmentv2();
                                 break;
                             case R.id.nav_bookmark:
-                                selectedFragmet = new BookmarkFragment();
+                                selectedFragment = new BookmarkFragment();
                                 break;
                             case R.id.nav_settings:
-                                selectedFragmet = new SettingsFragment();
+                                selectedFragment = new SettingsFragment();
                                 break;
                         }
                         getSupportFragmentManager()
                                 .beginTransaction()
-                                .replace(R.id.frame_container, selectedFragmet)
+                                .replace(R.id.frame_container, selectedFragment)
                                 .commit();
                         return true;
                     }

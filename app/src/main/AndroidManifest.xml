@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Activities.WebviewActivity"></activity>
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +33,12 @@
 
         <activity android:name=".extendedActivitys.BkExtendedNewsActivity" />
         <activity android:name=".Activities.MainActivity" />
+        <activity
+            android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="sensor"
+            android:theme="@style/FinestWebViewTheme.Light" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="4ad72d69d61e5eb0b155c2594c88867ab4b19f2f" />

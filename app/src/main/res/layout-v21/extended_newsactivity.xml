@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/extended_news_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -13,7 +13,7 @@
         android:elevation="4dp"
         app:theme="@style/AppTheme">
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -22,7 +22,7 @@
         android:scrollbars="none">
 
 
-        <android.support.constraint.ConstraintLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/consLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/detail_news_string2" />
 
-        </android.support.constraint.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
